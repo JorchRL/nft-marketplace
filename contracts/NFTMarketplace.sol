@@ -107,6 +107,8 @@ contract NFTMarketplace is ERC721URIStorage {
         idToMarketItem[tokenId].price = price;
         idToMarketItem[tokenId].seller = payable(msg.sender);
         idToMarketItem[tokenId].owner = payable(address(this));
+        _itemsSold.decrement();
+        _transfer(msg.sender, address(this), tokenId);
     }
 
     // Create the sale of a marketplace item
@@ -133,16 +135,16 @@ contract NFTMarketplace is ERC721URIStorage {
         uint unsoldItemCount = _tokenIds.current() - _itemsSold.current();
         uint currentIndex = 0;
 
-        MarketItem[] memory items = new MarketItem[](unsoldItemCount);
+        MarketItem[] memory unsold_items = new MarketItem[](unsoldItemCount);
         for (uint i = 0; i < itemCount; i++) {
             if (idToMarketItem[i + 1].owner == address(this)) {
                 uint currentId = i + 1;
                 MarketItem storage currentItem = idToMarketItem[currentId];
-                items[currentIndex] = currentItem;
+                unsold_items[currentIndex] = currentItem;
                 currentIndex += 1;
             }
         }
-        return items;
+        return unsold_items;
     }
 
     // return items that a user has purchased
