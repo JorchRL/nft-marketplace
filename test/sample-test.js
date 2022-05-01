@@ -17,7 +17,5 @@ describe("Greeter", function () {
     expect(await greeter.greet()).to.equal("Hola, mundo!");
   });
 
-  describe('NFTMarket', () => {
-    
-  });
+  
 });
