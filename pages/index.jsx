@@ -20,6 +20,7 @@ export default function Home() {
   const loadNFTs = async () => {
     // cannot test with hardhat network (local) on iPad because iOS blocks http server
     const provider = new ethers.providers.JsonRpcProvider();
+
     const contract = new ethers.Contract(
       marketplaceAddress,
       NFTMarketplace.abi, // the json created by hardhat contains the abi as a property
@@ -31,10 +32,7 @@ export default function Home() {
         const tokenUri = await contract.tokenURI(i.tokenId);
         console.log(tokenUri);
         const meta = await axios.get(tokenUri);
-        const price = await ethers.utils.formatEther(
-          i.price.toString(),
-          "ether"
-        );
+        const price = await ethers.utils.formatEther(i.price.toString());
 
         const item = {
           price,
@@ -91,6 +89,9 @@ export default function Home() {
       ) : (
         <div className="flex justify-center p-3">
           <div className="px-4 max-w-[1600px]">
+            <h1 className="px-2 py-1 text-xl ">
+              NFTs available in the marketplace
+            </h1>
             <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
               {nfts.map((nft, i) => (
                 <div
@@ -108,7 +109,7 @@ export default function Home() {
                   </div>
                   <div className="p-4 bg-black">
                     <p className="text-2xl font-bold text-white">
-                      {nft.description}
+                      {nft.price} eth
                     </p>
                     <button
                       className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"

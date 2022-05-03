@@ -36,16 +36,15 @@ export default function MyAssets() {
       data.map(async (i) => {
         const tokenURI = await contract.tokenURI(i.tokenId);
         const meta = await axios.get(tokenURI);
-        const price = await ethers.utils.formatEther(
-          i.price.toString(),
-          "ether"
-        );
+        const price = await ethers.utils.formatEther(i.price.toString());
         const item = {
           price,
           tokenId: i.tokenId.toNumber(),
           seller: i.seller,
           owner: i.owner,
           image: meta.data.image,
+          name: meta.data.name,
+          description: meta.data.description,
           tokenURI,
         };
         return item;
@@ -76,6 +75,7 @@ export default function MyAssets() {
       ) : (
         <div className="flex justify-center">
           <div className="p-4">
+            <h1 className="px-2 py-1 text-xl ">NFTs in your collection</h1>
             <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
               {nfts.map((nft, i) => (
                 <div
@@ -83,9 +83,17 @@ export default function MyAssets() {
                   className="border shadow rounded-xl overflow-hidden"
                 >
                   <img src={nft.image} className="rounded" />
+                  <div className="p-4">
+                    <p className="text-2xl font-semibold h-[64px]">
+                      {nft.name}
+                    </p>
+                    <div className="h-[70px] overflow-hidden">
+                      <p className="text-gray-400">{nft.description}</p>
+                    </div>
+                  </div>
                   <div className="p-4 bg-black">
                     <p className="text-2xl font-bold text-white">
-                      Price - {nft.price}
+                      {nft.price} eth
                     </p>
                     <button
                       className="mt-4 w-full bg-pink-500 text-white font-bold py-2 px-12 rounded"

@@ -56,7 +56,7 @@ export default function CreatorDashboard() {
           owner: i.owner,
           image: meta.data.image,
           name: meta.data.name,
-          // description: meta.data.description,
+          description: meta.data.description,
         };
         return item;
       })
@@ -82,6 +82,9 @@ export default function CreatorDashboard() {
       ) : (
         <div className="flex justify-center">
           <div className="p-4">
+            <h1 className="px-2 py-1 text-xl">
+              NFTs you are currently selling
+            </h1>
             <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 lg:grid-cols-4">
               {nfts.map((nft, i) => (
                 <div
@@ -89,8 +92,15 @@ export default function CreatorDashboard() {
                   className="border shadow rounded-xl overflow-hidden"
                 >
                   <img src={nft.image} className="rounded" />
+                  <div className="p-4">
+                    <p className="text-2xl font-semibold h-[64px]">
+                      {nft.name}
+                    </p>
+                    <div className="h-[70px] overflow-hidden">
+                      <p className="text-gray-400">{nft.description}</p>
+                    </div>
+                  </div>
                   <div className="p-4 bg-black">
-                    <p className="text-2xl text-white font-bold">{nft.name}</p>
                     <p className="text-2xl font-bold text-white">
                       {nft.price} eth
                     </p>
