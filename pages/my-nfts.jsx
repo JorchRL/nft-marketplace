@@ -34,7 +34,13 @@ export default function MyAssets() {
 
     const items = await Promise.all(
       data.map(async (i) => {
-        const tokenURI = await contract.tokenURI(i.tokenId);
+        let tokenURI;
+        try {
+          tokenURI = await contract.tokenURI(i.tokenId);
+        } catch (error) {
+          console.log("There are no nfts here", error);
+          return;
+        }
         const meta = await axios.get(tokenURI);
         const price = await ethers.utils.formatEther(i.price.toString());
         const item = {
@@ -45,7 +51,6 @@ export default function MyAssets() {
           image: meta.data.image,
           name: meta.data.name,
           description: meta.data.description,
-          tokenURI,
         };
         return item;
       })

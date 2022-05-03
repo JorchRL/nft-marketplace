@@ -18,10 +18,10 @@ export default function CreatorDashboard() {
   }, []);
 
   const loadNFTs = async () => {
-    const web3Modal = new Web3Modal({
-      network: "mainnet",
-      cacheProvider: true,
-    });
+    // Metamask can yield an "Internal JSON RPC error" but i cannot figure out
+    // if it is because I did something. The problem goes away if I switch accounts though
+
+    const web3Modal = new Web3Modal();
     const connection = await web3Modal.connect();
     const provider = new ethers.providers.Web3Provider(connection);
     const signer = provider.getSigner();
@@ -32,7 +32,7 @@ export default function CreatorDashboard() {
       signer
     );
     const data = await contract.fetchItemsListed();
-    // console.log(data);
+    console.log(data);
     const items = await Promise.all(
       data.map(async (i) => {
         let tokenUri;
@@ -42,13 +42,8 @@ export default function CreatorDashboard() {
           console.log("There are no listed nfts ", error);
           return;
         }
-        // console.log(tokenUri);
         const meta = await axios.get(tokenUri);
-        const price = await ethers.utils.formatEther(
-          i.price.toString(),
-          "ether"
-        );
-
+        const price = await ethers.utils.formatEther(i.price.toString());
         const item = {
           price,
           tokenId: i.tokenId.toNumber(),
@@ -61,7 +56,7 @@ export default function CreatorDashboard() {
         return item;
       })
     );
-    // console.log("nfts: ", nfts);
+    console.log("nfts: ", nfts);
     setNfts(items);
     setLoadingState("loaded");
   };
