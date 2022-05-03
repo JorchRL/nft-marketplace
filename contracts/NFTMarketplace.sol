@@ -60,8 +60,8 @@ contract NFTMarketplace is ERC721URIStorage {
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         _mint(msg.sender, newTokenId);
-        // Mint here is safe as newTokenId is always non-existent,
-        // msg.sender should be an account, not a contract
+        // _mint here is safe as newTokenId is always non-existent,
+        // msg.sender should be an account, or a payable contract
         _setTokenURI(newTokenId, tokenURI);
         createMarketItem(newTokenId, price);
         return newTokenId;
