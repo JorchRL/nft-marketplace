@@ -22,8 +22,8 @@ function MyApp({ Component, pageProps }) {
         </div>
       </nav>
       <Component {...pageProps} />
-      <footer className="flex justify-center">
-        Made with ❤️ by
+      <footer className="flex justify-center pt-6 border-t">
+        Made with ❤️&nbsp; by
         <a
           href="https://blog.jrlgs.dev"
           target="_blank"
