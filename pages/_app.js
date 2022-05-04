@@ -4,6 +4,14 @@ import Link from "next/link";
 function MyApp({ Component, pageProps }) {
   return (
     <div>
+      <div className="bg-pink-500 text-white text-xl flex justify-center">
+        Notice: use the mumbai testnet (polygon) only.&nbsp;
+        <Link href="https://faucet.polygon.technology/">
+          <a className="text-gray-300 hover:text-white">
+            Get some testnet MATIC
+          </a>
+        </Link>
+      </div>
       <nav className="border-b p-6">
         <p className="text-4xl font-bold">Jorch's NFT Mini Marketplace</p>
         <div className="flex mt-4">
