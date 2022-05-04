@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
         </Link>
       </div>
       <nav className="border-b p-6">
-        <p className="text-4xl font-bold">Jorch's NFT Mini Marketplace</p>
+        <p className="text-4xl font-bold">Jorch&apos;s NFT Mini Marketplace</p>
         <div className="flex mt-4">
           <Link href="/">
             <a className="mr-6 text-pink-500">Home</a>
