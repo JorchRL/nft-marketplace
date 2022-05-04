@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
-      "@contracts/*": ["artifacts/contracts/*"],
-       "@/*": ["./*"]
+      "@contracts/*": ["*","artifacts/contracts/*"],
+       "@/*": ["*","./*"]
     }
 
   }
