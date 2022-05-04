@@ -71,7 +71,7 @@ export default function CreatorDashboard() {
       {loadingState === "loaded" && !nfts.length ? (
         <div className="flex justify-center">
           <h1 className="px-20 py-10 text-3xl">
-            You don't have any NFT for sale! Sell some! 😅
+            You don&apos;t have any NFT for sale! Sell some! 😅
           </h1>
         </div>
       ) : (

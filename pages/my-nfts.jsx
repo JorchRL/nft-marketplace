@@ -74,7 +74,7 @@ export default function MyAssets() {
       {loadingState === "loaded" && !nfts.length ? (
         <div className="flex justify-center">
           <h1 className="px-20 py-10 text-3xl">
-            You don't have any NFT! Buy one! 😅
+            You don&apos;t have any NFT! Buy one! 😅
           </h1>
         </div>
       ) : (
