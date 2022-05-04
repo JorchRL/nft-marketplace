@@ -19,7 +19,9 @@ export default function Home() {
 
   const loadNFTs = async () => {
     // cannot test with hardhat network (local) on iPad because iOS blocks http server
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider(
+      "https://rpc-mumbai.maticvigil.com"
+    );
 
     const contract = new ethers.Contract(
       marketplaceAddress,
