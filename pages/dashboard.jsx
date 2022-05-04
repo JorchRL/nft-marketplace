@@ -64,7 +64,7 @@ export default function CreatorDashboard() {
   return (
     <div>
       <Head>
-        <title>Dashboard | Jorch's NFT marketplace</title>
+        <title>Dashboard | Jorch&apos;s NFT marketplace</title>
         <meta name="description" content="Support me by minting an nft!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

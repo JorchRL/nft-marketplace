@@ -75,7 +75,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Jorch's NFT marketplace</title>
+        <title>Jorch&apos;s NFT marketplace</title>
         <meta name="description" content="Support me by minting an nft!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

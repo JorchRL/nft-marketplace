@@ -66,7 +66,7 @@ export default function MyAssets() {
   return (
     <div>
       <Head>
-        <title>My NFTs | Jorch's NFT marketplace</title>
+        <title>My NFTs | Jorch&apos;s NFT marketplace</title>
         <meta name="description" content="Support me by minting an nft!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

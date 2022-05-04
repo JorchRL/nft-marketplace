@@ -92,44 +92,53 @@ export default function CreateItem() {
   };
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="px-20 py-5 text-xl">Mint a new NFT!</h1>
-      <div className="w-1/2 flex flex-col pb-12">
-        <input
-          placeholder="Asset Name"
-          className="mt-4 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, name: e.target.value })
-          }
-        />
-        <textarea
-          placeholder="Asset Description"
-          className="mt-2 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, description: e.target.value })
-          }
-        />
-        <input
-          placeholder="Asset Price in Eth"
-          className="mt-2 border rounded p-4"
-          onChange={(e) =>
-            updateFormInput({ ...formInput, price: e.target.value })
-          }
-        />
-        <input
-          type="file"
-          name="asset"
-          className="my-4"
-          onChange={onChangeImage}
-        />
-        {fileUrl && <img className="rounded mt-4" width="350" src={fileUrl} />}
-        <button
-          className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg "
-          onClick={listNFTforSale}
-        >
-          Create NFT
-        </button>
+    <>
+      <Head>
+        <title>Create NFT | Jorch&apos;s NFT marketplace</title>
+        <meta name="description" content="Support me by minting an nft!" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="flex flex-col items-center">
+        <h1 className="px-20 py-5 text-xl">Mint a new NFT!</h1>
+        <div className="w-1/2 flex flex-col pb-12">
+          <input
+            placeholder="Asset Name"
+            className="mt-4 border rounded p-4"
+            onChange={(e) =>
+              updateFormInput({ ...formInput, name: e.target.value })
+            }
+          />
+          <textarea
+            placeholder="Asset Description"
+            className="mt-2 border rounded p-4"
+            onChange={(e) =>
+              updateFormInput({ ...formInput, description: e.target.value })
+            }
+          />
+          <input
+            placeholder="Asset Price in Eth"
+            className="mt-2 border rounded p-4"
+            onChange={(e) =>
+              updateFormInput({ ...formInput, price: e.target.value })
+            }
+          />
+          <input
+            type="file"
+            name="asset"
+            className="my-4"
+            onChange={onChangeImage}
+          />
+          {fileUrl && (
+            <img className="rounded mt-4" width="350" src={fileUrl} />
+          )}
+          <button
+            className="font-bold mt-4 bg-pink-500 text-white rounded p-4 shadow-lg "
+            onClick={listNFTforSale}
+          >
+            Create NFT
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

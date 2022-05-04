@@ -56,7 +56,7 @@ export default function ResellNFT() {
   return (
     <div>
       <Head>
-        <title>Resell an NFT | Jorch's NFT marketplace</title>
+        <title>Resell an NFT | Jorch&apos;s NFT marketplace</title>
         <meta name="description" content="Support me by minting an nft!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
