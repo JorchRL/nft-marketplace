@@ -4,9 +4,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { marketplaceAddress } from "../config";
+import { marketplaceAddress } from "@/config";
 
-import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import NFTMarketplace from "@contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import Head from "next/head";
 
 export default function MyAssets() {

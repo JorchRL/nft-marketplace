@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { create as ipfsHttpClient } from "ipfs-http-client";
-import { useRouter } from "next/Router";
+import { useRouter } from "next/router";
 import Web3Modal from "web3modal";
 import Head from "next/head";
 
 const client = ipfsHttpClient("https://ipfs.infura.io:5001/api/v0");
 
-import { marketplaceAddress } from "../config";
-import NFTMarketplace from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import { marketplaceAddress } from "@/config";
+import NFTMarketplace from "@contracts/NFTMarketplace.sol/NFTMarketplace.json";
 
 export default function CreateItem() {
   const [fileUrl, setFileUrl] = useState(null);
